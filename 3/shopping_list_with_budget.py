@@ -4,28 +4,28 @@ budget = int(input("\nEnter your budget: "))
 pricelist = {"mleko": 25, "vejce": 33, "jogurt": 10, "chleba": 35}
 
 def print_menu():
-    # print("\nMenu: (budget remaining:",budget_remaining(),")")
-    print("\nMenu:")
+    print(f"\nMenu: (budget remaining: {budget_remaining()})")
+    # print("\nMenu:")
     print("1 - Get your shopping list")
     print("2 - Add item to shopping list")
     print("3 - Remove item from shopping list")
     print("4 - Total price of your shopping")
     print("0 - Exit")
-    # print("\nBudget remaining is",budget_remaining(),"\n")
+    print("\nBudget remaining is",budget_remaining(),"\n")
     
 def get_shopping_list():
     print("\nItems on the shopping list:", shopping_list)
 
 def add_item_to_shopping_list():
-    # print_pricelist_table()
+    print_pricelist_table()
     items = list(pricelist.keys())
-    print("Available items in pricelist are:", items)
+    # print("Available items in pricelist are:", items)
     item = input("\nName of the item: ")
 
     if item != "":
         if item in items:
-            if total_price_of_shopping() + pricelist[item] <= 100:
-            # if pricelist[item] <= budget_remaining():
+            # if total_price_of_shopping() + pricelist[item] <= 100:
+            if pricelist[item] <= budget_remaining():
                 shopping_list.append(item)
                 print("\nItem ", item, "has been added")
             else:
@@ -36,7 +36,7 @@ def add_item_to_shopping_list():
         print("\nYou have to specify an item")
 
 def remove_item_from_shopping_list():
-    # print("\n".join(shopping_list))
+    print("\n".join(shopping_list))
     item = input("\nName of the item: ")
     if item in shopping_list:
         shopping_list.remove(item)
